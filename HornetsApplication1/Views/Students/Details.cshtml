@@ -1,0 +1,80 @@
+﻿@model HornetsApplication1.Models.Student
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div id="printableArea">
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dd>
+            <img src="~/Media/Images/Student/@Model.Image" width="120" height="120" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StudentName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BirthDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Religion)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Religion)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FatherName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FatherName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MotherName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MotherName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Contact)
+        </dd>
+
+    </dl>
+</div>
+<div style="text-align:center;">
+
+    <input type="button" class="btn btn-danger" onclick="printDiv('printableArea')" value="print!" />
+    | <button type="button" class="btn btn-info" asp-action="Edit" asp-route-id="@Model.StudentId">Edit</button> |
+    <button type="button" class="btn btn-warning" asp-action="Index">Back to List</button>
+
+</div>
+<script>
+    function printDiv(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
+    }</script>

@@ -1,0 +1,70 @@
+﻿@model HornetsApplication1.Models.Faculty
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<center><h2>Create Faculty</h2></center>
+
+<hr />
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FacultyId" class="control-label"></label>
+                <input asp-for="FacultyId" class="form-control" />
+                <span asp-validation-for="FacultyId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FacultyName" class="control-label"></label>
+                <input asp-for="FacultyName" class="form-control" />
+                <span asp-validation-for="FacultyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FacultyDesignation" class="control-label"></label>
+                <input asp-for="FacultyDesignation" class="form-control" />
+                <span asp-validation-for="FacultyDesignation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FacultyQualification" class="control-label"></label>
+                <input asp-for="FacultyQualification" class="form-control" />
+                <span asp-validation-for="FacultyQualification" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FacultyAddress" class="control-label"></label>
+                <input asp-for="FacultyAddress" class="form-control" />
+                <span asp-validation-for="FacultyAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FacultyContact" class="control-label"></label>
+                <input asp-for="FacultyContact" class="form-control" />
+                <span asp-validation-for="FacultyContact" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.FacultyImage, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="file" name="file" accept="image/x-png,image/jpg,image/jpeg" />
+                    @Html.ValidationMessageFor(model => model.FacultyImage, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <br /> <br /><br />
+                             <center><input type="submit" value="Create" class="btn btn-primary"/></center>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

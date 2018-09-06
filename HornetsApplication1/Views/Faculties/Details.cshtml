@@ -1,0 +1,64 @@
+﻿@model HornetsApplication1.Models.Faculty
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div id="PrintableArea">
+    <h4>Faculty</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dd>
+            <img src="~/Media/Images/Faculty/@Model.FacultyImage" width="120" height="120" />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FacultyName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FacultyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FacultyDesignation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FacultyDesignation)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FacultyQualification)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FacultyQualification)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FacultyAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FacultyAddress)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FacultyContact)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FacultyContact)
+        </dd>
+
+
+    </dl>
+</div>
+<div>
+    <input type="button" class="btn btn-danger" onclick="printDiv('printableArea')" value="print a Div!" />
+    | <button type="button" class="btn btn-info" asp-action="Edit" asp-route-id="@Model.FacultyId">Edit</button> |
+    <button type="button" class="btn btn-warning" asp-action="Index">Back to List</button>
+
+</div>
+<script>
+    function printDiv(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
+    }</script>
